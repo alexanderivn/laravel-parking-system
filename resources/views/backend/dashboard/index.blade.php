@@ -10,58 +10,85 @@
     </section>
     {{--Header and nav end--}}
 
-    <section class="container mx-auto">
+    <section class="container mx-auto pb-4">
       <section class="w-full text-center space-y-4 text-gray-700">
-        <label class="block" for="search">Input Kode Parkir</label>
-        <input type="text" name="search" id="search" class="w-full text-black">
+        <h1 class="font-bold">Spot Kosong: 2546</h1>
       </section>
     </section>
 
-    <section>
-      <section class="text-gray-700">
-        <label for="type">MASUK</label>
-        <input type="radio" id="type">
-      </section>
-      <section class="text-gray-700">
-        <label for="type">KELUAR</label>
-        <input type="radio" id="type">
-      </section>
-    </section>
-
-    <section class="pt-8 container mx-auto">
-      <section class="bg-red-200 space-y-4">
+    {{--Parkir Masuk--}}
+    <section class="grid grid-cols-2 gap-x-4">
+      <section class="bg-blue-200 space-y-4 p-8">
+        <section>
+          <h1>Parkir Masuk</h1>
+        </section>
         <section>
           <label class="block" for="no_pol">No Polisi</label>
-          <input type="text" value="R 7502 ABC" id="no_pol">
+          <input type="text" value="R 7502 ABC" id="no_pol" class="w-full p-1 rounded-md">
         </section>
-
         <section>
           <label class="block" for="kode_parkir">Kode Parkir</label>
-          <input type="text" value="DTX0192" id="kode_parkir" name="kode_parkir">
+          <input type="text" value="DTX0192" id="kode_parkir" name="kode_parkir" class="w-full p-1 rounded-md">
         </section>
-
         <section>
           <label class="block" for="masuk">Jam Masuk</label>
-          <input type="text" value="Monday, 22 Augt 2022, 10:00 AM" class="" name="masuk" id="masuk">
+          <input type="datetime-local" value="Monday, 22 Augt 2022, 10:00 AM" name="masuk" id="masuk"
+                 class="w-full p-1 rounded-md">
         </section>
 
-        <section>
-          <label class="block" for="masuk">Jam Keluar</label>
-          <input type="text" value="Monday, 22 Augt 2022, 10:00 AM" class="" name="masuk" id="masuk">
+        <section class="flex gap-x-8">
+          <section class="bg-yellow-200 p-8">
+            <section>Mobil</section>
+          </section>
+          <section class="bg-yellow-200 p-8">
+            <section>Motor</section>
+          </section>
+          <section class="bg-yellow-200 p-8 w-full text-center">
+            <section>Masuk</section>
+          </section>
         </section>
       </section>
+      {{--Parkir Masuk end--}}
 
-      <section class="text-gray-700">
-        <h1>Lama Parkir: 6 Jam</h1>
-        <h1>Subtotal: 7500</h1>
-        <h1>Bayar: 8000</h1>
-        <h1>Change: 500</h1>
-        <section>
-          <button class="bg-red-200 px-4 py-21">Open Gate</button>
+      {{--Parkir Keluar--}}
+      <section class="bg-blue-200">
+        <section class="bg-blue-200 space-y-4 p-8">
+          <section>
+            <h1>Parkir Masuk</h1>
+          </section>
+          <section>
+            <label class="block" for="no_pol">No Polisi</label>
+            <input type="text" value="R 7502 ABC" id="no_pol" class="w-full p-1 rounded-md">
+          </section>
+          <section>
+            <label class="block" for="kode_parkir">Kode Parkir</label>
+            <input type="text" value="DTX0192" id="kode_parkir" name="kode_parkir" class="w-full p-1 rounded-md">
+          </section>
+          <section>
+            <label class="block" for="masuk">Jam Masuk</label>
+            <input type="datetime-local" value="Monday, 22 Augt 2022, 10:00 AM" name="masuk" id="masuk"
+                   class="w-full p-1 rounded-md">
+          </section>
+
+          <section>
+            <label class="block" for="kode_parkir">Total Bayar:</label>
+            <input type="text" value="Rp.10,000" id="kode_parkir" name="kode_parkir" class="w-full p-1 rounded-md">
+          </section>
+
+          <section>
+            <label class="block" for="kode_parkir">Kembalian:</label>
+            <input type="text" value="Rp. 2,000" id="kode_parkir" name="kode_parkir" class="w-full p-1 rounded-md">
+          </section>
+
+          <section class="bg-yellow-200 p-8 w-full text-center">
+            <section>Masuk</section>
+          </section>
         </section>
       </section>
+      {{--Parkir Keluar end--}}
     </section>
 
+  </section>
   </section>
 
 
