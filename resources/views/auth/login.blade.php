@@ -1,5 +1,5 @@
 <x-app.layout>
-  <section class="grid h-screen px-4 lg:grid-cols-2 bg-red-200">
+  <section class="grid h-screen px-4 lg:grid-cols-2 bg-slate-700">
     <section class="h-auto m-auto">
       <h1 class="text-4xl font-bold text-white">Parking System</h1>
     </section>
@@ -10,7 +10,7 @@
       {{-- Too many login notification --}}
       @if (session('error'))
         <section class="p-4 bg-red-200 rounded-lg">
-          <p class="font-medium text-pyxel-red">{{ session('error') }}</p>
+          <p class="font-medium text-red-500">{{ session('error') }}</p>
         </section>
       @endif
       {{-- Too many login notification end --}}
@@ -37,13 +37,15 @@
             <input type="checkbox" id="remember" name="remember">
           </label>
         </section>
-        <section class="space-y-2">
-          <a href="#" class="text-xs underline">Forgot Login</a>
-        </section>
+{{--        <section class="space-y-2">--}}
+{{--          <a href="#" class="text-xs underline">Forgot Login</a>--}}
+{{--        </section>--}}
       </section>
       <section class="w-full">
         <button type="submit"
-                class="w-full px-16 py-3 text-center text-white transition duration-300 rounded-full bg-pyxel-red hover:bg-pyxel-indigo hover:font-medium hover:text-white">Login</button>
+                class="w-full px-16 py-3 text-center text-white transition duration-300 rounded-md bg-blue-500 hover:bg-blue-700 hover:font-medium hover:text-white">
+          Login
+        </button>
       </section>
     </form>
   </section>

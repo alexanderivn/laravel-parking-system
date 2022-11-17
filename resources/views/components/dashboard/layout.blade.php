@@ -11,7 +11,14 @@
 </head>
 <body class="subpixel-antialiased">
 <main>
-  {{$slot}}
+  <div class="font-roboto flex h-screen bg-gray-200" x-data="{ sidebarOpen: false }">
+    <x-sidebar/>
+    <x-header>
+      <x-slot:content>
+        {{$slot}}
+      </x-slot:content>
+    </x-header>
+  </div>
 </main>
 </body>
 </html>

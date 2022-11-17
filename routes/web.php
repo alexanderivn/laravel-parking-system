@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//must login
-
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', function () {
-        return view('backend.index');
-    });
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/create', [DashboardController::class, 'create'])->name('dashboard.create');
+    Route::post('/store', [DashboardController::class, 'store'])->name('dashboard.store');
 });
-
-Route::get('login', function () {
-    return view('auth.login');
-})->name('login');
