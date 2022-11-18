@@ -33,7 +33,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
         </svg>
-        <li class="mx-3">{{ __('inbox') }}</li>
+        <li class="mx-3">{{ __('Parking') }}</li>
       </a>
 
       <a class=" transition rounded-full duration-300 mt-4 flex items-center px-6 py-2 text-jolly-dental-text hover:rounded-full hover:bg-jolly-dental-orange hover:text-white"

@@ -49,7 +49,7 @@
 
   {{-- Main Content --}}
   <main class="flex-1 overflow-y-auto overflow-x-hidden bg-gray-50">
-    <section class="min-w-screen px-6 py-8 2xl:px-0 container mx-auto">
+    <section class="min-w-screen px-6 py-8 3xl:px-0 container mx-auto">
       {{$content}}
     </section>
   </main>
