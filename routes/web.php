@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\VehicleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
-    Route::get('/create', [DashboardController::class, 'create'])->name('dashboard.create');
-    Route::post('/store', [DashboardController::class, 'store'])->name('dashboard.store');
+    Route::get('parking', [VehicleController::class, 'index'])->name('parking.index');
+    Route::get('parking/{vehicle}/barcode', [VehicleController::class, 'show'])->name('parking.show');
+    Route::post('parking/add', [VehicleController::class, 'store'])->name('parking.store');
 });

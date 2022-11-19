@@ -10,11 +10,11 @@ class ParkingService
 {
     public function checkIn(VehicleRequest $request)
     {
-        return Vehicle::create([
-            'unique_code'  => $this->generateBarcodeNumber(),
+        return Vehicle::firstOrCreate([
+            'unique_code' => $this->generateBarcodeNumber(),
             'plate_number' => $request->get('plate_number'),
-            'clock_in'     => $request->get('clock_in'),
-            //            'parking_fee'  => $this->calculateFee(),
+            'clock_in' => $request->get('clock_in'),
+            'parking_fee' => $this->calculateFee(),
         ]);
     }
 
@@ -31,7 +31,7 @@ class ParkingService
         return Vehicle::where('unique_code')->exists();
     }
 
-    public function calculateFee()
+    public function calculateFee(): float|int
     {
         $vehicle = (new Vehicle());
         $clockIn = Carbon::parse($vehicle->clock_in);
@@ -39,13 +39,6 @@ class ParkingService
         $mins = $clockOut->diffInMinutes($clockIn);
         $rate = 3000;
         $fees = 0;
-
-
-//        if ($mins / 60 < 1) {
-//            $fees = $rate;
-//        } else {
-//            $fees = $mins / 60 * $rate;
-//        }
 
         return $mins / 60 < 1 ? $fees = $rate : $fees = $mins / 60 * $rate;
     }

@@ -17,8 +17,8 @@
   <nav class="mt-10 px-4">
 
     <ul>
-      <a class="transition rounded-full duration-300 mt-4 flex items-center px-6 py-2 text-jolly-dental-text hover:rounded-full hover:bg-blue-600 hover:text-white"
-         href="#">
+      <a class="@if(Route::is('dashboard.index')) bg-blue-500 text-white @endif transition rounded-full duration-300 mt-4 flex items-center px-6 py-2 hover:rounded-full hover:bg-blue-600 hover:text-white"
+         href="{{route('dashboard.index')}}">
         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
@@ -27,8 +27,8 @@
         <li class="mx-3">{{ __('Dashboard') }}</li>
       </a>
 
-      <a class="transition rounded-full duration-300 mt-4 flex items-center px-6 py-2 text-jolly-dental-text hover:rounded-full hover:bg-jolly-dental-orange hover:text-white"
-         href="">
+      <a class="@if(Route::is('parking.index')) bg-blue-500 text-white @endif transition rounded-full duration-300 mt-4 flex items-center px-6 py-2 hover:rounded-full hover:bg-jolly-dental-orange hover:text-white"
+         href="{{route('parking.index')}}">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -36,7 +36,7 @@
         <li class="mx-3">{{ __('Parking') }}</li>
       </a>
 
-      <a class=" transition rounded-full duration-300 mt-4 flex items-center px-6 py-2 text-jolly-dental-text hover:rounded-full hover:bg-jolly-dental-orange hover:text-white"
+      <a class=" transition rounded-full duration-300 mt-4 flex items-center px-6 py-2 hover:rounded-full hover:bg-jolly-dental-orange hover:text-white"
          href="#">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -46,7 +46,7 @@
       </a>
 
 
-      <a class="transition rounded-full duration-300 mt-4 flex items-center px-6 py-2 text-jolly-dental-text hover:rounded-full hover:bg-jolly-dental-orange hover:text-white"
+      <a class="transition rounded-full duration-300 mt-4 flex items-center px-6 py-2 hover:rounded-full hover:bg-jolly-dental-orange hover:text-white"
          href="">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -58,7 +58,7 @@
 
       <section x-data="{subMenu:true}" class="space-y-2">
         <button x-on:click="subMenu = !subMenu"
-                class="transition w-full rounded-full duration-300 mt-4 flex items-center px-6 py-2 text-jolly-dental-text hover:rounded-full hover:bg-jolly-dental-orange hover:text-white"
+                class="transition w-full rounded-full duration-300 mt-4 flex items-center px-6 py-2 hover:rounded-full hover:bg-jolly-dental-orange hover:text-white"
                 href="">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -80,7 +80,7 @@
 
 
       <a href="#"
-         class=" transition rounded-full duration-300 mt-4 flex items-center px-6 py-2 text-jolly-dental-text hover:rounded-full hover:bg-jolly-dental-orange hover:text-white">
+         class=" transition rounded-full duration-300 mt-4 flex items-center px-6 py-2 hover:rounded-full hover:bg-jolly-dental-orange hover:text-white">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
