@@ -18,11 +18,14 @@
                 </section>
             </section>
 
-            <section class="text-gray-700 bg-red-200 p-8 rounded-md space-y-2">
-                <label class="block" for="quick_search">Quick Checkout</label>
-                <input type="text" class="p-1 rounded-md" placeholder="Parking code" id="quick_search"
-                       name="quick_search">
-            </section>
+            <form action="{{route('parking.search')}}" method="GET">
+                @csrf
+                <section class="text-gray-700 bg-red-200 p-8 rounded-md space-y-2">
+                    <label class="block" for="quick_search">Quick Checkout</label>
+                    <input type="text" class="p-1 rounded-md w-full" placeholder="Parking code" id="quick_search"
+                           name="quick_search">
+                </section>
+            </form>
         </section>
 
         {{--Parkir Masuk--}}
