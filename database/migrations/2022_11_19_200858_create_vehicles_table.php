@@ -9,11 +9,7 @@ return new class extends Migration {
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
-            $table->string('plate_number');
-            $table->string('unique_code');
-            $table->timestamp('clock_in');
-            $table->timestamp('clock_out')->nullable();
-            $table->integer('parking_fee')->default(3000);
+            $table->string('vehicle_number');
             $table->timestamps();
         });
     }

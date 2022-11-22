@@ -1,4 +1,4 @@
-<x-dashboard.layout>
+<x-app.layout>
     <section>
         <h1>Barcode</h1>
         @if(Session::has('success'))
@@ -36,4 +36,4 @@
         </section>
     </section>
 
-</x-dashboard.layout>
+</x-app.layout>
