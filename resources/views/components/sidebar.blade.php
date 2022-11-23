@@ -72,12 +72,6 @@
 						</a>
 					</ul>
 
-					<ul>
-						<a href="{{route('parking-check-out.index')}}">
-							<li class="hover:font-bold hover:text-blue-500">Active Parked</li>
-						</a>
-					</ul>
-
 					@role('Admin')
 					<ul>
 						<a href="{{route('parking-check-out.index')}}">
