@@ -6,7 +6,7 @@
         <button class="text-gray-500 focus:outline-none lg:hidden" @click="sidebarOpen = true">
           <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round"/>
+                  stroke-linejoin="round" />
           </svg>
         </button>
 
@@ -18,8 +18,8 @@
           <section class="">
             <button class="relative block h-8 w-8 overflow-hidden rounded-full shadow focus:outline-none"
                     @click="dropdownOpen = ! dropdownOpen">
-              <img class="h-full w-full object-cover "
-                   src="" alt="Your avatar">
+              <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" class="h-full w-full object-cover"
+                   alt="avatar" />
             </button>
 
             <section class="fixed inset-0 z-10 h-full w-full" x-show="dropdownOpen"
@@ -32,7 +32,7 @@
               <form action="{{route('logout')}}" method="POST">
                 @csrf
                 <button
-                        class="flex min-w-full justify-start px-4 py-2 text-sm text-gray-700 hover:bg-jolly-dental-orange hover:text-white">
+                    class="flex min-w-full justify-start px-4 py-2 text-sm text-gray-700 hover:bg-jolly-dental-orange hover:text-white">
                   Logout
                 </button>
               </form>

@@ -14,6 +14,7 @@
     "laravel/framework": "^9.19",
     "laravel/sanctum": "^3.0",
     "laravel/tinker": "^2.7",
+    "laravolt/avatar": "^4.1",
     "livewire/livewire": "^2.10",
     "milon/barcode": "^9.0",
     "spatie/laravel-permission": "^5.6"

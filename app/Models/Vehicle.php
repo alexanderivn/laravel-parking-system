@@ -18,24 +18,20 @@ class Vehicle extends Model
 
     public function scopeSearch(Builder $query, $search): Builder
     {
-        return $query->whereHas('ticket', function (Builder $query) use ($search) {
-            $query->where('parking_code', 'LIKE', '%'.$search.'%')
-                ->latest()
-                ->orWhere('vehicle_number', 'LIKE', '%'.$search.'%');
-        })->with('ticket')
-            ->latest();
+        return $query->with('ticket')
+            ->join('tickets', 'vehicles.id', '=', 'tickets.vehicle_id')
+            ->where('parking_code', 'LIKE', '%'.$search.'%')
+            ->orWhere('vehicle_number', 'LIKE', '%'.$search.'%')
+            ->orderBy('tickets.clock_in', 'DESC');
     }
 
     public function scopeReport(Builder $query, $search): Builder
     {
-        return $query->select('id', 'vehicle_number')
-            ->whereHas('ticket', function (Builder $query) use ($search) {
-                $query->where('parking_code', 'LIKE', '%'.$search.'%')
-                    ->latest()
-                    ->orWhere('vehicle_number', 'LIKE', '%'.$search.'%')
-                    ->orWhere('clock_out', '!=', null);
-            })->with('ticket')
-            ->latest();
+        return $query->with('ticket')
+            ->join('tickets', 'vehicles.id', '=', 'tickets.vehicle_id')
+            ->where('parking_code', 'LIKE', '%'.$search.'%')
+            ->orWhere('vehicle_number', 'LIKE', '%'.$search.'%')
+            ->orderBy('tickets.clock_out', 'DESC');
     }
 
     public function scopeParked(Builder $query): Builder

@@ -8,12 +8,12 @@
         </x-card>
 
         <x-card>
-          <x-slot:title>Total Space</x-slot:title>
+          <x-slot:title>Total Available</x-slot:title>
           <x-slot:content>{{number_format($totalAvailable ?? '0')}}</x-slot:content>
         </x-card>
 
         <x-card>
-          <x-slot:title>Total Space</x-slot:title>
+          <x-slot:title>Total Parked</x-slot:title>
           <x-slot:content>{{number_format($parkedVehicles ?? '0')}}</x-slot:content>
         </x-card>
 
