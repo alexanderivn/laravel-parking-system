@@ -11,11 +11,11 @@ use Livewire\WithPagination;
 
 class ActiveVehicleTable extends Component
 {
-
     use WithPagination;
 
     public $search;
     public $perPage = 15;
+    public $vehicle;
 
     protected $queryString = [
         'search' => ['except' => ''],
@@ -36,5 +36,11 @@ class ActiveVehicleTable extends Component
     public function updatingSearch(): void
     {
         $this->resetPage();
+    }
+
+    public function show(Vehicle $vehicle)
+    {
+        $vehicle->load('ticket');
+        return view('pages.report.show')->with('vehicle', $vehicle);
     }
 }

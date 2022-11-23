@@ -2,8 +2,6 @@
 
 	<livewire:active-vehicle-table />
 
-
-	Add Barcode Here
 	{{--	<section class="bg-blue-200">--}}
 	{{--		<section class="bg-blue-200 space-y-4 p-8">--}}
 	{{--			<section>--}}

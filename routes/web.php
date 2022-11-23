@@ -28,16 +28,19 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
-
     Route::get('parking/', [ParkingCheckInController::class, 'index'])->name('parking-check-in.index');
     Route::post('parking/check-in/add', [ParkingCheckInController::class, 'store'])->name('parking-check-in.store');
     Route::get('parking/check-in/add/{vehicle}',
         [ParkingCheckInController::class, 'show'])->name('parking-check-in.show');
 
     Route::get('parking/check-out', [ParkingCheckOutController::class, 'index'])->name('parking-check-out.index');
+//    Route::get('parking/check-out/{vehicle}', [CheckoutShow::class, 'show'])->name('parking-check-out.show');
+//
     Route::get('parking/check-out/{vehicle}',
         [ParkingCheckOutController::class, 'show'])->name('parking-check-out.show');
 
+    Route::patch('parking/check-out/{vehicle}',
+        [ParkingCheckOutController::class, 'store'])->name('parking-check-out.store');
 
     //Report
     Route::get('report', [ReportController::class, 'index'])->name('report.index');

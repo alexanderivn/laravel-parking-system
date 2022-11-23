@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Ticket extends Model
 {
 
-    protected $fillable = ['vehicle_id', 'parking_code', 'clock_in', 'clock_out'];
+    protected $fillable = ['vehicle_id', 'parking_code', 'clock_in', 'clock_out', 'parking_fee'];
 
     public function vehicle(): BelongsTo
     {
         return $this->belongsTo(Vehicle::class);
     }
+
+
 }

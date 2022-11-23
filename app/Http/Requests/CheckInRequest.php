@@ -10,7 +10,7 @@ class CheckInRequest extends FormRequest
     {
         return [
             'vehicle_number' => ['required', 'string'],
-            'clock_in' => ['required'],
+            'clock_in' => ['required', 'date'],
 
         ];
     }

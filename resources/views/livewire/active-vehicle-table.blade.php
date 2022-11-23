@@ -8,11 +8,7 @@
 			</section>
 
 			<section class="flex gap-x-4">
-				@role('Admin')
-				<section>
-					<button class="bg-green-500 text-white px-4 py-2 rounded-md">Export to CSV</button>
-				</section>
-				@endrole
+
 				<section>
 					<label for="per_page"></label>
 					<select wire:model="perPage" id="per_page" name="per_page" class="rounded-md">
@@ -23,7 +19,7 @@
 				</section>
 			</section>
 		</section>
-		<div class="overflow-x-auto relative">
+		<section class="overflow-x-auto relative">
 			<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
 				<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
 				<tr>
@@ -49,39 +45,42 @@
 				</thead>
 				<tbody>
 				@foreach($vehicles as $vehicle)
-					<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-						<th scope="row"
-						    class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-							<a href="{{route('parking-check-out.show', $vehicle)}}"> {{$vehicle->ticket->parking_code}}</a>
-						</th>
-						<td class="py-4 px-6">
-							{{$vehicle->vehicle_number}}
-						</td>
-						<td class="py-4 px-6">
-							{{\Carbon\Carbon::parse($vehicle->ticket->clock_in)->format('d M Y H:i')}}
-						</td>
-						<td class="py-4 px-6">
-							@if(empty($vehicle->ticket->clock_out))
-								-
-							@else
-								{{\Carbon\Carbon::parse($vehicle->ticket->clock_out)->format('d M Y H:i')}}
-							@endif
-						</td>
-						<td class="py-4 px-6">
-							{{\App\Services\ParkingService::calculateFee($vehicle->ticket->clock_in)}}
-						</td>
-						<td class="py-4 px-6 text-white">
-							<section class="flex gap-x-2">
-								<button class="bg-orange-500 p-2">Print Code</button>
-								<a href="{{route('parking-check-out.show', $vehicle)}}">
-									<button class="bg-green-500 p-2">Check Out</button>
-								</a>
-							</section>
-						</td>
-					</tr>
+					@if(!$vehicle->ticket->clock_out)
+
+						<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+							<th scope="row"
+							    class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+								<a href="{{route('parking-check-out.show', $vehicle)}}"> {{$vehicle->ticket->parking_code}}</a>
+							</th>
+							<td class="py-4 px-6">
+								{{$vehicle->vehicle_number}}
+							</td>
+							<td class="py-4 px-6">
+								{{\Carbon\Carbon::parse($vehicle->ticket->clock_in)->format('d M Y H:i')}}
+							</td>
+							<td class="py-4 px-6">
+								@if(empty($vehicle->ticket->clock_out))
+									-
+								@else
+									{{\Carbon\Carbon::parse($vehicle->ticket->clock_out)->format('d M Y H:i')}}
+								@endif
+							</td>
+							<td class="py-4 px-6">
+								{{\App\Services\ParkingService::calculateFee($vehicle->ticket->clock_in)}}
+							</td>
+							<td class="py-4 px-6 text-white">
+								<section class="flex gap-x-2">
+									<a href="{{route('parking-check-out.show', $vehicle)}}">
+										<button class="bg-green-500 p-2">Check Out</button>
+									</a>
+								</section>
+							</td>
+						</tr>
+					@endif
 				@endforeach
 				</tbody>
 			</table>
-		</div>
+		</section>
 	</section>
+	{{$vehicles->links()}}
 </div>

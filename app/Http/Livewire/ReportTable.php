@@ -20,7 +20,7 @@ class ReportTable extends Component
 
     public function render()
     {
-        $vehicles = Vehicle::search($this->search)
+        $vehicles = Vehicle::report($this->search)
             ->paginate($this->perPage);
         return view('livewire.report-table')
             ->with([
