@@ -8,17 +8,7 @@
 				</section>
 			@endif
 
-			{{--        <style>--}}
-			{{--            body {--}}
-			{{--                visibility: hidden;--}}
-			{{--            }--}}
-
-			{{--            .print {--}}
-			{{--                visibility: visible;--}}
-			{{--            }--}}
-			{{--        </style>--}}
-
-			<section class="print" id="print">
+			<section>
 				<section class="flex flex-col justify-center">
 
 					<img src="data:image/png;base64,{{DNS2D::getBarcodePNG($vehicle->ticket->parking_code, 'PDF417')}}"

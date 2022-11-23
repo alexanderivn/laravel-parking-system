@@ -8,17 +8,7 @@
 				</section>
 			@endif
 
-			{{--        <style>--}}
-			{{--            body {--}}
-			{{--                visibility: hidden;--}}
-			{{--            }--}}
-
-			{{--            .print {--}}
-			{{--                visibility: visible;--}}
-			{{--            }--}}
-			{{--        </style>--}}
-
-			<section class="print" id="print">
+			<section>
 				<section class="flex flex-col justify-center">
 					<h1>Vehicle Number: {{$vehicle->vehicle_number}}</h1>
 					<h1>Clock in: {{$vehicle->ticket->clock_in}}</h1>

@@ -14,7 +14,6 @@
 		</a>
 	</section>
 
-
 	<nav class="mt-10 px-4">
 
 		<ul>
@@ -39,15 +38,6 @@
 				<li class="mx-3">{{ __('Report') }}</li>
 			</a>
 			@endrole
-
-			{{--      <a class="@if(Route::is('parking.index')) bg-blue-500 text-white @endif transition rounded-full duration-300 mt-4 flex items-center px-6 py-2 hover:rounded-full hover:bg-jolly-dental-orange hover:text-white"--}}
-			{{--         href="{{route('parking.index')}}">--}}
-			{{--        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">--}}
-			{{--          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"--}}
-			{{--                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>--}}
-			{{--        </svg>--}}
-			{{--        <li class="mx-3">{{ __('Parking') }}</li>--}}
-			{{--      </a>--}}
 
 			<section x-data="{subMenu:$persist(0)}" class="space-y-2">
 				<button x-on:click="subMenu = !subMenu"

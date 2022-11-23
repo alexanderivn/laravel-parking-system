@@ -7,7 +7,6 @@
 				       placeholder="Search parking number">
 			</section>
 
-
 			<section class="flex gap-x-4">
 				<section>
 					<button class="bg-green-500 text-white px-4 py-2 rounded-md">Export to CSV</button>
@@ -15,7 +14,6 @@
 				<section>
 					<label for="per_page"></label>
 					<select wire:model="perPage" id="per_page" name="per_page" class="rounded-md">
-						<option>1</option>
 						<option>15</option>
 						<option>50</option>
 						<option>100</option>
