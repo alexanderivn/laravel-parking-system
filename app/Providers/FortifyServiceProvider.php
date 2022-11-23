@@ -6,9 +6,11 @@ use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Http\Responses\LoginResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
 use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
@@ -30,13 +32,14 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->app->singleton(LoginResponseContract::class, LoginResponse::class);
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         RateLimiter::for('login', function (Request $request) {
-            $key = 'login.' . $request->ip();
+            $key = 'login.'.$request->ip();
             $max = 5;   // attempts
             $decay = 120;    //seconds
 
@@ -46,14 +49,13 @@ class FortifyServiceProvider extends ServiceProvider
                 return redirect()->route('login')
                     ->with('error', __('auth.throttle', ['seconds' => $seconds]));
             } else {
-                RateLimiter::hit($key, $decay);
+                return RateLimiter::hit($key, $decay);
             }
         });
 
         Fortify::loginView(function () {
             return view('auth.login');
         });
-
     }
 
 }
