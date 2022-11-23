@@ -21,7 +21,7 @@
 		</section>
 		<section class="overflow-x-auto relative">
 			<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-				<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+				<thead class="text-xs text-gray-700 uppercase bg-slate-200 dark:bg-gray-700 dark:text-gray-400">
 				<tr>
 					<th scope="col" class="py-3 px-6">
 						Parking Code
@@ -71,7 +71,7 @@
 							<td class="py-4 px-6 text-white">
 								<section class="flex gap-x-2">
 									<a href="{{route('parking-check-out.show', $vehicle)}}">
-										<button class="bg-green-500 p-2">Check Out</button>
+										<button class="bg-green-500 p-2 rounded-md">Check Out</button>
 									</a>
 								</section>
 							</td>

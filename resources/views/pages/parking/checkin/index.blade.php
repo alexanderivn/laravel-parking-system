@@ -2,17 +2,17 @@
 	<section class="h-screen">
 		<section class="space-y-8 pb-8">
 			<section class="grid lg:grid-cols-3 gap-x-8 gap-y-8">
-				<section class="text-gray-700 bg-red-200 p-8 rounded-md">
+				<section class="text-gray-700 bg-slate-200 shadow-sm p-8 rounded-md">
 					<h5 class="font-medium">Total Parking Space</h5>
 					<h1 class="font-bold text-2xl">{{$spot->space ?? '0'}}</h1>
 				</section>
 
-				<section class="text-gray-700 bg-red-200 p-8 rounded-md">
+				<section class="text-gray-700 bg-slate-200 shadow-sm p-8 rounded-md">
 					<h1 class="font-medium ">Total Available</h1>
 					<h1 class="font-bold text-2xl">{{$totalAvailable ?? '0'}}</h1>
 				</section>
 
-				<section class="text-gray-700 bg-red-200 p-8 rounded-md">
+				<section class="text-gray-700 bg-slate-200 shadow-sm p-8 rounded-md">
 					<h1 class="font-medium ">Vehicle Parked</h1>
 					<h1 class="font-bold text-2xl">{{$parkedVehicles ?? '0'}}</h1>
 				</section>
@@ -39,7 +39,7 @@
 
 			<form action="{{route('parking-check-in.store')}}" method="POST">
 				@csrf
-				<section class="bg-white shadow-lg space-y-4 p-8">
+				<section class="bg-slate-200 shadow-sm space-y-4 p-8 rounded-md">
 					<section>
 						<h1 class="font-bold text-2xl">Check In</h1>
 					</section>
