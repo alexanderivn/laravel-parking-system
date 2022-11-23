@@ -49,7 +49,7 @@ class FortifyServiceProvider extends ServiceProvider
                 return redirect()->route('login')
                     ->with('error', __('auth.throttle', ['seconds' => $seconds]));
             } else {
-                return RateLimiter::hit($key, $decay);
+                RateLimiter::hit($key, $decay);
             }
         });
 
