@@ -35,6 +35,11 @@ class ReportTable extends Component
         $this->resetPage();
     }
 
+    public function resetFilters()
+    {
+        $this->reset();
+    }
+
     public function show(Vehicle $vehicle)
     {
         $vehicle->load('ticket');

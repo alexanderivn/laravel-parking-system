@@ -4,7 +4,10 @@
 
 <section {{ $attributes->merge(['class'=>'py-8 space-y-8']) }}>
   <section>
-    <button class="bg-green-500 text-white px-4 py-2 rounded-md">Export to CSV</button>
+    <a href="{{route('report.export')}}">
+      <button class="bg-green-500 text-white px-4 py-2 rounded-md">Export to CSV</button>
+    </a>
+
   </section>
   <section class="flex justify-between">
     <section>

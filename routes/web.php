@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth', 'role:Admin|Operator']], function () {
 
 // Admin Middleware
 Route::group(['middleware' => ['auth', 'role:Admin']], function () {
+    Route::get('report/export', [ReportController::class, 'export'])->name('report.export');
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('report', [ReportController::class, 'index'])->name('report.index');
     Route::get('report/{vehicle}', [ReportController::class, 'show'])->name('report.show');

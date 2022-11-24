@@ -17,9 +17,6 @@ return new class extends Migration {
             $table->timestamp('clock_in');
             $table->timestamp('clock_out')->nullable();
             $table->integer('parking_fee')->default(0);
-            $table->integer('pay_amount')->default(0);
-            $table->integer('pay_changes')->default(0);
-            $table->integer('total')->default(0);
 
             $table->timestamps();
         });

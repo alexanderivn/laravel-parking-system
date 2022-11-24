@@ -32,7 +32,17 @@ class Vehicle extends Model
             ->when($search, fn($query, $search) => $query->where('parking_code', 'like', '%'.$search.'%'))
             ->when($dateMin, fn($query, $date) => $query->where('clock_in', '>=', Carbon::parse($date)))
             ->when($dateMax, fn($query, $date) => $query->where('clock_in', '<=', Carbon::parse($date)))
+            ->where('clock_out', '!=', null)
             ->orderBy('clock_in', 'DESC');
+    }
+
+    public function scopeParked(Builder $query): Builder
+    {
+        return $query->whereHas('ticket', function (Builder $query) {
+            $query->latest()
+                ->where('clock_out', null);
+        })->with('ticket')
+            ->latest();
     }
 
 }

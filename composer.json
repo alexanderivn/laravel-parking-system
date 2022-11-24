@@ -16,7 +16,9 @@
     "laravel/tinker": "^2.7",
     "laravolt/avatar": "^4.1",
     "livewire/livewire": "^2.10",
+    "maatwebsite/excel": "^3.1",
     "milon/barcode": "^9.0",
+    "psr/simple-cache": "2.0",
     "spatie/laravel-permission": "^5.6"
   },
   "require-dev": {
