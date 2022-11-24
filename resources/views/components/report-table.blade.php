@@ -3,27 +3,41 @@
 ])
 
 <section {{ $attributes->merge(['class'=>'py-8 space-y-8']) }}>
+  <section>
+    <button class="bg-green-500 text-white px-4 py-2 rounded-md">Export to CSV</button>
+  </section>
   <section class="flex justify-between">
     <section>
       <label for="search"></label>
-      <input wire:model="search" type="text" name="search" id="search" class="rounded-md"
+      <input wire:model.debounce="search" type="text" name="search" id="search" class="rounded-md"
+             placeholder="Search parking number">
+    </section>
+
+    <section>
+      <input wire:model.debounce="dateMin" type="datetime-local" name="dateMin" id="dateMin" class="rounded-md"
+             placeholder="Search parking number">
+    </section>
+
+    <section>
+      <input wire:model.debounce="dateMax" type="datetime-local" name="dateMax" id="dateMax" class="rounded-md"
              placeholder="Search parking number">
     </section>
 
     <section class="flex gap-x-4">
-      <section>
-        <button class="bg-green-500 text-white px-4 py-2 rounded-md">Export to CSV</button>
-      </section>
+
       <section>
         <label for="per_page"></label>
-        <select wire:model="perPage" id="per_page" name="per_page" class="rounded-md">
+        <select wire:model.debounce="perPage" id="per_page" name="per_page" class="rounded-md">
           <option>15</option>
           <option>50</option>
           <option>100</option>
         </select>
       </section>
+      <button wire:click="resetFilters" class="bg-yellow-500 text-white px-4 py-2 rounded-md">Reset Filters
+      </button>
     </section>
   </section>
+
   <section class="overflow-x-auto relative">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <thead class="text-xs text-gray-700 uppercase bg-slate-200 dark:bg-gray-700 dark:text-gray-400">

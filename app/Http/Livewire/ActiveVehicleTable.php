@@ -16,6 +16,8 @@ class ActiveVehicleTable extends Component
     public $search;
     public $perPage = 15;
     public $vehicle;
+    public $dateMin = null;
+    public $dateMax = null;
 
     protected $queryString = [
         'search' => ['except' => ''],
@@ -36,6 +38,11 @@ class ActiveVehicleTable extends Component
     public function updatingSearch(): void
     {
         $this->resetPage();
+    }
+
+    public function resetFilters()
+    {
+        $this->reset();
     }
 
     public function show(Vehicle $vehicle)

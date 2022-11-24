@@ -12,6 +12,8 @@ class ReportTable extends Component
 
     public $search;
     public $perPage = 15;
+    public $dateMin = null;
+    public $dateMax = null;
 
     protected $queryString = [
         'search' => ['except' => ''],
@@ -20,7 +22,7 @@ class ReportTable extends Component
 
     public function render()
     {
-        $vehicles = Vehicle::report($this->search)
+        $vehicles = Vehicle::reportFilters($this->search, $this->dateMin, $this->dateMax)
             ->paginate($this->perPage);
         return view('livewire.report-table')
             ->with([
